@@ -35,7 +35,7 @@ export default function RootLayout({
         <body className={`${mulish.variable} ${lato.variable} antialiased`}>
           <div className="flex">
             <Sidebar />
-            <div className="w-full">
+            <div className='w-full'>
               <Header brandName="Ankit" />
               {children}
             </div>
