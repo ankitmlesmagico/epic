@@ -7,9 +7,9 @@ const Page: React.FC = () => {
   const [activeStep, setActiveStep] = useState<number>(0);
 
   return (
-    <div className='w-full bg-white'>
+    <div className='h-[calc(100vh-68px)] bg-white mx-5 flex flex-col pt-3'>
         <SubStepper stepArray={stepArray} activeStep={activeStep} setActiveStep={setActiveStep} >
-       {/* Here Pass Children Component */}
+        {/* Here Pass Children Component */}
         </SubStepper>
     </div>
   );
