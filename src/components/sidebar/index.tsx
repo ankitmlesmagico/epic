@@ -1,6 +1,7 @@
 'use client';
 import React, { useState } from 'react';
-import { FiChevronsDown, FiChevronsUp } from 'react-icons/fi';
+import { MdKeyboardArrowDown, MdKeyboardArrowUp } from 'react-icons/md';
+
 import epicLogo from '@/assets/images/epicLogo.png';
 import contractManagement from '@/assets/icons/contractManagement.svg';
 import Image from 'next/image';
@@ -56,21 +57,27 @@ const Sidebar: React.FC = () => {
           <div key={menu.title}>
             <button
               onClick={() => toggleMenu(menu.title)}
-              className={`w-full flex items-center justify-between p-2 rounded-lg transition-colors ${
+              className={`w-full flex items-center justify-between py-2 px-3 rounded-lg transition-colors ${
                 openMenus[menu.title]
                   ? 'text-blue-600'
                   : 'text-gray-700 hover:bg-gray-50'
               }`}
-              style={{ color: `${openMenus[menu.title] ? 'red' : 'black'}` }}
+              style={{
+                color: `${openMenus[menu.title] ? '#0168B4' : 'black'}`,
+              }}
             >
               <div className="flex items-center gap-2">
-                <Image src={menu.icon} alt={menu.title} />
+                <Image
+                  src={menu.icon}
+                  alt={menu.title}
+                  style={{ height: '16px', width: '16px' }}
+                />
                 <span className="font-medium">{menu.title}</span>
               </div>
               {openMenus[menu.title] ? (
-                <FiChevronsDown className="w-4 h-4" />
+                <MdKeyboardArrowDown className="w-4 h-4" />
               ) : (
-                <FiChevronsUp className="w-4 h-4" />
+                <MdKeyboardArrowUp className="w-4 h-4" />
               )}
             </button>
 

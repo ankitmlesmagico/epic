@@ -3,6 +3,7 @@ import { Mulish, Lato } from 'next/font/google';
 import './globals.css';
 import Providers from './providers';
 import Sidebar from '@/components/sidebar';
+import Header from '@/components/header';
 
 const mulish = Mulish({
   weight: ['300', '400', '500', '600', '700'],
@@ -34,8 +35,8 @@ export default function RootLayout({
         <body className={`${mulish.variable} ${lato.variable} antialiased`}>
           <div className="flex">
             <Sidebar />
-            <div>
-              <p>topbar</p>
+            <div className="w-full">
+              <Header brandName="Ankit" />
               {children}
             </div>
           </div>
