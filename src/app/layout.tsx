@@ -1,17 +1,21 @@
 import type { Metadata } from 'next';
-import localFont from 'next/font/local';
+import { Mulish, Lato } from 'next/font/google';
 import './globals.css';
 import Providers from './providers';
+import Sidebar from '@/components/sidebar';
 
-const geistSans = localFont({
-  src: './fonts/GeistVF.woff',
-  variable: '--font-geist-sans',
-  weight: '100 900',
+const mulish = Mulish({
+  weight: ['300', '400', '500', '600', '700'],
+  subsets: ['latin'],
+  variable: '--mulish-font',
+  display: 'swap',
 });
-const geistMono = localFont({
-  src: './fonts/GeistMonoVF.woff',
-  variable: '--font-geist-mono',
-  weight: '100 900',
+
+const lato = Lato({
+  weight: ['300', '400', '700'],
+  subsets: ['latin'],
+  variable: '--lato-font',
+  display: 'swap',
 });
 
 export const metadata: Metadata = {
@@ -27,10 +31,14 @@ export default function RootLayout({
   return (
     <html lang="en">
       <Providers>
-        <body
-          className={`${geistSans.variable} ${geistMono.variable} antialiased`}
-        >
-          {children}
+        <body className={`${mulish.variable} ${lato.variable} antialiased`}>
+          <div className="flex">
+            <Sidebar />
+            <div>
+              <p>topbar</p>
+              {children}
+            </div>
+          </div>
         </body>
       </Providers>
     </html>

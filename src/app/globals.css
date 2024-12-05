@@ -4,9 +4,18 @@
 
 :root {
   --background: #171717;
-  --foreground: ##f9f9fc;
+  --foreground: #f9f9fc;
+  --mulish-font: normal;
+  --lato-font: normal;
 }
 
+.mulish-font {
+  font-family: var(--mulish-font);
+}
+
+.lato-font {
+  font-family: var(--lato-font);
+}
 @media (prefers-color-scheme: dark) {
   :root {
     --background: #f9f9fc;
