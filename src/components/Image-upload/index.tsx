@@ -1,11 +1,15 @@
 'use client';
-import { on } from 'events';
 import React, { useRef } from 'react';
-import { BsUpload } from 'react-icons/bs';
-import { BsTrash } from 'react-icons/bs'; // Import trash icon for delete button
+import { BsUpload, BsTrash } from 'react-icons/bs';
 
-const ImageUpload = ({ onChange, value, disable = false }) => {
-  const ImageInputRef = useRef(null);
+interface ImageUploadProps {
+  onChange: (file: File | null) => void;
+  value: File | string | null;
+  disable?: boolean;
+}
+
+const ImageUpload: React.FC<ImageUploadProps> = ({ onChange, value, disable = false }) => {
+  const ImageInputRef = useRef<HTMLInputElement>(null);
 
   const handleSelectImageClick = () => {
     ImageInputRef?.current?.click();
@@ -25,7 +29,7 @@ const ImageUpload = ({ onChange, value, disable = false }) => {
         accept="image/png, image/jpeg"
         ref={ImageInputRef}
         onChange={(event) => {
-          if (event?.target.files) {
+          if (event?.target.files?.[0]) {
             onChange(event.target.files[0]);
           }
         }}
