@@ -20,7 +20,7 @@ const SubStepper: React.FC<SubStepperProps> = ({
         {stepArray.map((step, index) => (
           <button
             key={index}
-            className={`h-11 px-4 py-2 font-lato text-sm font-semibold ${activeStep === index ? 'text-[#0168B4] border-b-2 border-[#0168B4]' : 'text-[#858D98] border-b-2 border-transparent'}`}
+            className={`h-11 px-4 py-2 font-lato text-sm font-medium ${activeStep === index ? 'text-[#0168B4] border-b-2 border-[#0168B4]' : 'text-[#858D98] border-b-2 border-transparent'}`}
             onClick={() => setActiveStep(index)}
           >
             {step}
